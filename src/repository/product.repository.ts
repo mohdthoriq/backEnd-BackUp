@@ -1,5 +1,5 @@
 import type { Decimal } from "@prisma/client/runtime/client";
-import type { Prisma, PrismaClient, Product } from "../src/generated/prisma/client";
+import type { Prisma, PrismaClient, Product } from "../generated";
 // import type { Decimal } from "../src/generated/prisma/internal/prismaNamespace";
 
 export interface IProductRepository {

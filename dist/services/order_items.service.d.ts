@@ -1,6 +1,6 @@
-import type { PrismaClient, OrderItem } from "../src/generated/prisma/client";
-import type { IOrderItemRepository } from "../repository/order_items.repository";
-import type { FindAllParams } from "./product.service";
+import type { PrismaClient, OrderItem } from "../generated/index.js";
+import type { IOrderItemRepository } from "../repository/order_items.repository.js";
+import type { FindAllParams } from "./product.service.js";
 export interface OrderItemListResponse {
     items: OrderItem[];
     total: number;

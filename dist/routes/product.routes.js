@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { createProductValidation, getProductsByIdValidation } from "../validations/product.validation";
-import { validate } from "../utils/validator";
-import { authenticate } from "../middlewares/auth.middlleware";
-import { upload } from "../middlewares/upload.middleware";
-import { ProductRepository } from "../repository/product.repository";
-import { PrismaInstance } from "../prisma";
-import { ProductService } from "../services/product.service";
-import { ProductController } from "../controllers/product.controller";
+import { createProductValidation, getProductsByIdValidation } from "../validations/product.validation.js";
+import { validate } from "../utils/validator.js";
+import { authenticate } from "../middlewares/auth.middlleware.js";
+import { upload } from "../middlewares/upload.middleware.js";
+import { ProductRepository } from "../repository/product.repository.js";
+import { ProductService } from "../services/product.service.js";
+import { ProductController } from "../controllers/product.controller.js";
+import { PrismaInstance } from "../database.js";
 const router = Router();
 const repo = new ProductRepository(PrismaInstance);
 const service = new ProductService(repo);
@@ -27,7 +27,7 @@ const controller = new ProductController(service);
  *       200:
  *         description: List produk berhasil diambil
  */
-router.get('/', controller.list);
+router.get("/", controller.list);
 /**
  * @swagger
  * /product/stats:
@@ -38,7 +38,7 @@ router.get('/', controller.list);
  *       200:
  *         description: Statistik produk berhasil diambil
  */
-router.get('/stats', controller.getStats);
+router.get("/stats", controller.getStats);
 /**
  * @swagger
  * /product/{id}:
@@ -58,7 +58,7 @@ router.get('/stats', controller.getStats);
  *       404:
  *         description: Produk tidak ditemukan
  */
-router.get('/:id', validate(getProductsByIdValidation), controller.getById);
+router.get("/:id", validate(getProductsByIdValidation), controller.getById);
 /**
  * @swagger
  * /product:
@@ -98,7 +98,7 @@ router.get('/:id', validate(getProductsByIdValidation), controller.getById);
  *       201:
  *         description: Produk berhasil dibuat
  */
-router.post('/', authenticate, upload.single('image'), validate(createProductValidation), controller.create);
+router.post("/", authenticate, upload.single("image"), validate(createProductValidation), controller.create);
 /**
  * @swagger
  * /product/{id}:
@@ -129,7 +129,7 @@ router.post('/', authenticate, upload.single('image'), validate(createProductVal
  *       200:
  *         description: Produk berhasil diupdate
  */
-router.put('/:id', controller.update);
+router.put("/:id", controller.update);
 /**
  * @swagger
  * /product/{id}:
@@ -147,6 +147,6 @@ router.put('/:id', controller.update);
  *       200:
  *         description: Produk berhasil dihapus
  */
-router.delete('/:id', controller.remove);
+router.delete("/:id", controller.remove);
 export default router;
 //# sourceMappingURL=product.routes.js.map

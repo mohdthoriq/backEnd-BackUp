@@ -1,5 +1,5 @@
-import type { IProfileRepository } from "../repository/profile.repository";
-import type { Profile } from "../src/generated/prisma/client";
+import type { IProfileRepository } from "../repository/profile.repository.js";
+import type { Profile } from "../generated/index.js";
 export interface IProfileService {
     create(data: {
         name: string;

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { validate } from '../utils/validator';
 import { createOrderItemValidation, getOrderItemByIdValidation } from '../validations/order_items.validation';
-import { PrismaInstance } from '../prisma';
+import { PrismaInstance } from '../database';
 import { OrderItemRepository } from '../repository/order_items.repository';
 import { OrderItemService } from '../services/order_items.service';
 import { OrderItemController } from '../controllers/order_items.cotroller';

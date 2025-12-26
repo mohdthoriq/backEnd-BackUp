@@ -1,5 +1,5 @@
-import type { Prisma, Category, PrismaClient } from "../src/generated/prisma/client";
-import type { Decimal } from "../src/generated/prisma/internal/prismaNamespace";
+import type { Prisma, Category, PrismaClient } from "../generated";
+import type { Decimal } from "../generated/runtime/client";
 
 export interface ICategoryRepository {
   list(

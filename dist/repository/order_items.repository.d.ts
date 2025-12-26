@@ -1,4 +1,4 @@
-import type { Prisma, PrismaClient, OrderItem } from "../src/generated/prisma/client";
+import type { Prisma, PrismaClient, OrderItem } from "../generated/index.js";
 export interface IOrderItemRepository {
     findAll(params: {
         skip: number;
@@ -37,7 +37,7 @@ export declare class OrderItemRepository implements IOrderItemRepository {
             product: {
                 name: string;
                 description: string | null;
-                price: import("@prisma/client-runtime-utils").Decimal;
+                price: Prisma.Decimal;
                 stock: number;
                 categoryId: number | null;
                 id: number;
@@ -50,15 +50,15 @@ export declare class OrderItemRepository implements IOrderItemRepository {
                 id: number;
                 createdAt: Date;
                 updatedAt: Date;
-                total: import("@prisma/client-runtime-utils").Decimal;
+                total: Prisma.Decimal;
                 userId: number;
             };
         } & {
             id: number;
-            quantity: number;
-            priceAtTime: import("@prisma/client-runtime-utils").Decimal;
-            product_id: number;
             order_id: number;
+            product_id: number;
+            quantity: number;
+            priceAtTime: Prisma.Decimal;
         })[];
         total: number;
     }>;
@@ -66,7 +66,7 @@ export declare class OrderItemRepository implements IOrderItemRepository {
         product: {
             name: string;
             description: string | null;
-            price: import("@prisma/client-runtime-utils").Decimal;
+            price: Prisma.Decimal;
             stock: number;
             categoryId: number | null;
             id: number;
@@ -79,22 +79,22 @@ export declare class OrderItemRepository implements IOrderItemRepository {
             id: number;
             createdAt: Date;
             updatedAt: Date;
-            total: import("@prisma/client-runtime-utils").Decimal;
+            total: Prisma.Decimal;
             userId: number;
         };
     } & {
         id: number;
-        quantity: number;
-        priceAtTime: import("@prisma/client-runtime-utils").Decimal;
-        product_id: number;
         order_id: number;
+        product_id: number;
+        quantity: number;
+        priceAtTime: Prisma.Decimal;
     }) | null>;
     findRawById(id: number): Promise<{
         id: number;
-        quantity: number;
-        priceAtTime: import("@prisma/client-runtime-utils").Decimal;
-        product_id: number;
         order_id: number;
+        product_id: number;
+        quantity: number;
+        priceAtTime: Prisma.Decimal;
     } | null>;
     create(data: {
         orderId: number;
@@ -105,7 +105,7 @@ export declare class OrderItemRepository implements IOrderItemRepository {
         product: {
             name: string;
             description: string | null;
-            price: import("@prisma/client-runtime-utils").Decimal;
+            price: Prisma.Decimal;
             stock: number;
             categoryId: number | null;
             id: number;
@@ -118,15 +118,15 @@ export declare class OrderItemRepository implements IOrderItemRepository {
             id: number;
             createdAt: Date;
             updatedAt: Date;
-            total: import("@prisma/client-runtime-utils").Decimal;
+            total: Prisma.Decimal;
             userId: number;
         };
     } & {
         id: number;
-        quantity: number;
-        priceAtTime: import("@prisma/client-runtime-utils").Decimal;
-        product_id: number;
         order_id: number;
+        product_id: number;
+        quantity: number;
+        priceAtTime: Prisma.Decimal;
     }>;
     update(id: number, data: {
         orderId: number;
@@ -136,7 +136,7 @@ export declare class OrderItemRepository implements IOrderItemRepository {
         product: {
             name: string;
             description: string | null;
-            price: import("@prisma/client-runtime-utils").Decimal;
+            price: Prisma.Decimal;
             stock: number;
             categoryId: number | null;
             id: number;
@@ -149,22 +149,22 @@ export declare class OrderItemRepository implements IOrderItemRepository {
             id: number;
             createdAt: Date;
             updatedAt: Date;
-            total: import("@prisma/client-runtime-utils").Decimal;
+            total: Prisma.Decimal;
             userId: number;
         };
     } & {
         id: number;
-        quantity: number;
-        priceAtTime: import("@prisma/client-runtime-utils").Decimal;
-        product_id: number;
         order_id: number;
+        product_id: number;
+        quantity: number;
+        priceAtTime: Prisma.Decimal;
     }>;
     remove(id: number): Promise<{
         id: number;
-        quantity: number;
-        priceAtTime: import("@prisma/client-runtime-utils").Decimal;
-        product_id: number;
         order_id: number;
+        product_id: number;
+        quantity: number;
+        priceAtTime: Prisma.Decimal;
     }>;
 }
 //# sourceMappingURL=order_items.repository.d.ts.map

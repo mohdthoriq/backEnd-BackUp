@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { validate } from "../utils/validator";
-import { createCategoryValidation, getCategoryByIdValidation } from "../validations/category.validation";
-import { PrismaInstance } from "../prisma";
-import { CategoryRepository } from "../repository/category.repository";
-import { CategoryService } from "../services/category.service";
-import { CategoryController } from "../controllers/category.controller";
+import { validate } from "../utils/validator.js";
+import { createCategoryValidation, getCategoryByIdValidation } from "../validations/category.validation.js";
+import { PrismaInstance } from "../database.js";
+import { CategoryRepository } from "../repository/category.repository.js";
+import { CategoryService } from "../services/category.service.js";
+import { CategoryController } from "../controllers/category.controller.js";
 const router = Router();
 const repo = new CategoryRepository(PrismaInstance);
 const service = new CategoryService(repo);
@@ -41,7 +41,7 @@ const controller = new CategoryController(service);
  *       200:
  *         description: Daftar kategori berhasil diambil
  */
-router.get('/', controller.list);
+router.get("/", controller.list);
 /**
  * @swagger
  * /categories/stats:
@@ -52,7 +52,7 @@ router.get('/', controller.list);
  *       200:
  *         description: Statistik kategori berhasil diambil
  */
-router.get('/stats', controller.getCategoryStats);
+router.get("/stats", controller.getCategoryStats);
 /**
  * @swagger
  * /categories/{id}:
@@ -72,7 +72,7 @@ router.get('/stats', controller.getCategoryStats);
  *       404:
  *         description: Kategori tidak ditemukan
  */
-router.get('/:id', validate(getCategoryByIdValidation), controller.getById);
+router.get("/:id", validate(getCategoryByIdValidation), controller.getById);
 /**
  * @swagger
  * /categories:
@@ -95,7 +95,7 @@ router.get('/:id', validate(getCategoryByIdValidation), controller.getById);
  *       201:
  *         description: Kategori berhasil dibuat
  */
-router.post('/', validate(createCategoryValidation), controller.create);
+router.post("/", validate(createCategoryValidation), controller.create);
 /**
  * @swagger
  * /categories/{id}:
@@ -123,7 +123,7 @@ router.post('/', validate(createCategoryValidation), controller.create);
  *       200:
  *         description: Kategori berhasil diupdate
  */
-router.put('/:id', controller.update);
+router.put("/:id", controller.update);
 /**
  * @swagger
  * /categories/{id}:
@@ -141,6 +141,6 @@ router.put('/:id', controller.update);
  *       200:
  *         description: Kategori berhasil dihapus
  */
-router.delete('/:id', controller.remove);
+router.delete("/:id", controller.remove);
 export default router;
 //# sourceMappingURL=category.routes.js.map

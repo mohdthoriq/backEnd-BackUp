@@ -1,4 +1,4 @@
-import type { Prisma, Order, PrismaClient } from "../src/generated/prisma/client";
+import type { Prisma, Order, PrismaClient } from "../generated/index.js";
 export interface FindAllOrderParams {
     page: number;
     limit: number;

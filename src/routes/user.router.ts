@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { UserRepository } from "../repository/user.repository";
-import { PrismaInstance } from "../prisma";
+import { PrismaInstance } from "../database";
 import { UserService } from "../services/user.service";
 import { UserController } from "../controllers/user.controller";
 

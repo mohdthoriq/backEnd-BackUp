@@ -1,5 +1,5 @@
-import type { Prisma, PrismaClient, Product } from "../src/generated/prisma/client";
-import type { Decimal } from "../src/generated/prisma/internal/prismaNamespace";
+import type { Decimal } from "@prisma/client/runtime/client";
+import type { Prisma, PrismaClient, Product } from "../generated/index.js";
 export interface IProductRepository {
     list(skip: number, take: number, where: Prisma.ProductWhereInput, orderBy: Prisma.ProductOrderByWithRelationInput): Promise<Product[]>;
     countAll(where: Prisma.ProductWhereInput): Promise<number>;
@@ -50,7 +50,7 @@ export declare class ProductRepository implements IProductRepository {
     } & {
         name: string;
         description: string | null;
-        price: import("@prisma/client-runtime-utils").Decimal;
+        price: Prisma.Decimal;
         stock: number;
         categoryId: number | null;
         id: number;
@@ -62,7 +62,7 @@ export declare class ProductRepository implements IProductRepository {
     create(data: Prisma.ProductCreateInput): Promise<{
         name: string;
         description: string | null;
-        price: import("@prisma/client-runtime-utils").Decimal;
+        price: Prisma.Decimal;
         stock: number;
         categoryId: number | null;
         id: number;
@@ -74,7 +74,7 @@ export declare class ProductRepository implements IProductRepository {
     update(id: number, data: Prisma.ProductUpdateInput): Promise<{
         name: string;
         description: string | null;
-        price: import("@prisma/client-runtime-utils").Decimal;
+        price: Prisma.Decimal;
         stock: number;
         categoryId: number | null;
         id: number;
@@ -86,7 +86,7 @@ export declare class ProductRepository implements IProductRepository {
     softDelete(id: number): Promise<{
         name: string;
         description: string | null;
-        price: import("@prisma/client-runtime-utils").Decimal;
+        price: Prisma.Decimal;
         stock: number;
         categoryId: number | null;
         id: number;
@@ -98,7 +98,7 @@ export declare class ProductRepository implements IProductRepository {
     findComplex(categoryName: string, maxPrice: number): Promise<{
         name: string;
         description: string | null;
-        price: import("@prisma/client-runtime-utils").Decimal;
+        price: Prisma.Decimal;
         stock: number;
         categoryId: number | null;
         id: number;
@@ -129,7 +129,7 @@ export declare class ProductRepository implements IProductRepository {
             id: number;
         };
         _avg: {
-            price: import("@prisma/client-runtime-utils").Decimal | null;
+            price: Decimal | null;
         };
     })[]>;
 }

@@ -1,5 +1,5 @@
 import type { ICategoryRepository } from "../repository/category.repository";
-import type { Category, Prisma } from "../src/generated/prisma/client";
+import type { Category, Prisma } from "../generated";
 
 export interface FindAllCategoryParams {
   page: number;

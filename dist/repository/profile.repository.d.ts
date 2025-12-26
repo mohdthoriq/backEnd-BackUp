@@ -1,4 +1,4 @@
-import type { Prisma, PrismaClient, Profile, User } from "../src/generated/prisma/client";
+import type { Prisma, PrismaClient, Profile, User } from "../generated/index.js";
 export interface IProfileRepository {
     findUserById(userId: number): Promise<User | null>;
     findProfileById(id: number): Promise<Profile | null>;

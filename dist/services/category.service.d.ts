@@ -1,5 +1,5 @@
-import type { ICategoryRepository } from "../repository/category.repository";
-import type { Category } from "../src/generated/prisma/client";
+import type { ICategoryRepository } from "../repository/category.repository.js";
+import type { Category } from "../generated/index.js";
 export interface FindAllCategoryParams {
     page: number;
     limit: number;

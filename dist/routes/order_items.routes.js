@@ -1,10 +1,10 @@
-import { Router } from 'express';
-import { validate } from '../utils/validator';
-import { createOrderItemValidation, getOrderItemByIdValidation } from '../validations/order_items.validation';
-import { PrismaInstance } from '../prisma';
-import { OrderItemRepository } from '../repository/order_items.repository';
-import { OrderItemService } from '../services/order_items.service';
-import { OrderItemController } from '../controllers/order_items.cotroller';
+import { Router } from "express";
+import { validate } from "../utils/validator.js";
+import { createOrderItemValidation, getOrderItemByIdValidation } from "../validations/order_items.validation.js";
+import { PrismaInstance } from "../database.js";
+import { OrderItemRepository } from "../repository/order_items.repository.js";
+import { OrderItemService } from "../services/order_items.service.js";
+import { OrderItemController } from "../controllers/order_items.cotroller.js";
 const router = Router();
 const repo = new OrderItemRepository(PrismaInstance);
 const service = new OrderItemService(PrismaInstance, repo);
@@ -25,7 +25,7 @@ const controller = new OrderItemController(service);
  *       200:
  *         description: Data order item berhasil diambil
  */
-router.get('/', controller.getAll);
+router.get("/", controller.getAll);
 /**
  * @swagger
  * /order-items/{id}:
@@ -45,7 +45,7 @@ router.get('/', controller.getAll);
  *       404:
  *         description: Order item tidak ditemukan
  */
-router.get('/:id', validate(getOrderItemByIdValidation), controller.getById);
+router.get("/:id", validate(getOrderItemByIdValidation), controller.getById);
 /**
  * @swagger
  * /order-items:
@@ -80,7 +80,7 @@ router.get('/:id', validate(getOrderItemByIdValidation), controller.getById);
  *       201:
  *         description: Order item berhasil dibuat
  */
-router.post('/', validate(createOrderItemValidation), controller.create);
+router.post("/", validate(createOrderItemValidation), controller.create);
 /**
  * @swagger
  * /order-items/{id}:
@@ -111,7 +111,7 @@ router.post('/', validate(createOrderItemValidation), controller.create);
  *       200:
  *         description: Order item berhasil diupdate
  */
-router.put('/:id', controller.update);
+router.put("/:id", controller.update);
 /**
  * @swagger
  * /order-items/{id}:
@@ -129,6 +129,6 @@ router.put('/:id', controller.update);
  *       200:
  *         description: Order item berhasil dihapus
  */
-router.delete('/:id', controller.remove);
+router.delete("/:id", controller.remove);
 export default router;
 //# sourceMappingURL=order_items.routes.js.map

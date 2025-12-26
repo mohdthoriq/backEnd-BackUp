@@ -1,5 +1,5 @@
 import type { IOrderRepository } from "../repository/orders.repository";
-import type { Order, PrismaClient } from "../src/generated/prisma/client";
+import type { Order, PrismaClient } from "../generated";
 
 export interface FindAllOrderParams {
   page: number;

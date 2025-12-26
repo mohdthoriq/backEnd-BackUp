@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import type { IOrderItemService } from "../services/order_items.service";
+import type { IOrderItemService } from "../services/order_items.service.js";
 export declare class OrderItemController {
     private orderItemService;
     constructor(orderItemService: IOrderItemService);

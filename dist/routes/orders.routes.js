@@ -1,11 +1,11 @@
-import { Router } from 'express';
-import { validate } from '../utils/validator';
-import { checkoutOrderValidation, createOrderValidation, getOrderByIdValidation } from '../validations/orders.validation';
-import { authenticate } from '../middlewares/auth.middlleware';
-import { OrderRepository } from '../repository/orders.repository';
-import { PrismaInstance } from '../prisma';
-import { OrderService } from '../services/orders.service';
-import { OrderController } from '../controllers/orders.controller';
+import { Router } from "express";
+import { validate } from "../utils/validator.js";
+import { checkoutOrderValidation, createOrderValidation, getOrderByIdValidation } from "../validations/orders.validation.js";
+import { authenticate } from "../middlewares/auth.middlleware.js";
+import { OrderRepository } from "../repository/orders.repository.js";
+import { PrismaInstance } from "../database.js";
+import { OrderService } from "../services/orders.service.js";
+import { OrderController } from "../controllers/orders.controller.js";
 const router = Router();
 const repo = new OrderRepository(PrismaInstance);
 const service = new OrderService(PrismaInstance, repo);
@@ -26,7 +26,7 @@ const controller = new OrderController(service);
  *       200:
  *         description: List order berhasil diambil
  */
-router.get('/', controller.list);
+router.get("/", controller.list);
 /**
  * @swagger
  * /order/{id}:
@@ -46,7 +46,7 @@ router.get('/', controller.list);
  *       404:
  *         description: Order tidak ditemukan
  */
-router.get('/:id', validate(getOrderByIdValidation), controller.getById);
+router.get("/:id", validate(getOrderByIdValidation), controller.getById);
 /**
  * @swagger
  * /order/checkout:
@@ -84,7 +84,7 @@ router.get('/:id', validate(getOrderByIdValidation), controller.getById);
  *       400:
  *         description: Stock tidak cukup atau data invalid
  */
-router.post('/checkout', authenticate, controller.checkout);
+router.post("/checkout", authenticate, controller.checkout);
 /**
  * @swagger
  * /order:
@@ -123,7 +123,7 @@ router.post('/checkout', authenticate, controller.checkout);
  *       201:
  *         description: Order berhasil dibuat
  */
-router.post('/', validate(createOrderValidation), controller.create);
+router.post("/", validate(createOrderValidation), controller.create);
 /**
  * @swagger
  * /order/{id}:
@@ -159,7 +159,7 @@ router.post('/', validate(createOrderValidation), controller.create);
  *       200:
  *         description: Order berhasil diupdate
  */
-router.put('/:id', controller.update);
+router.put("/:id", controller.update);
 /**
  * @swagger
  * /order/{id}:
@@ -177,6 +177,6 @@ router.put('/:id', controller.update);
  *       200:
  *         description: Order berhasil dihapus
  */
-router.delete('/:id', controller.remove);
+router.delete("/:id", controller.remove);
 export default router;
 //# sourceMappingURL=orders.routes.js.map

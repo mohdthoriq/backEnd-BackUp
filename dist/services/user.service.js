@@ -1,7 +1,7 @@
 // services/user.service.ts
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import config from "../utils/env";
+import config from "../utils/env.js";
 export class UserService {
     userRepo;
     constructor(userRepo) {

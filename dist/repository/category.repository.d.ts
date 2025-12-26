@@ -1,5 +1,5 @@
-import type { Prisma, Category, PrismaClient } from "../src/generated/prisma/client";
-import type { Decimal } from "../src/generated/prisma/internal/prismaNamespace";
+import type { Prisma, Category, PrismaClient } from "../generated/index.js";
+import type { Decimal } from "../generated/runtime/client.js";
 export interface ICategoryRepository {
     list(skip: number, take: number, where: Prisma.CategoryWhereInput, orderBy: Prisma.CategoryOrderByWithRelationInput): Promise<Category[]>;
     countAll(where: Prisma.CategoryWhereInput): Promise<number>;
@@ -31,7 +31,7 @@ export declare class CategoryRepository implements ICategoryRepository {
         name: string;
         id: number;
         products: {
-            price: import("@prisma/client-runtime-utils").Decimal;
+            price: Prisma.Decimal;
             stock: number;
         }[];
     }[]>;

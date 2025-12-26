@@ -1,35 +1,35 @@
-import { PrismaInstance } from '../prisma';
-import { faker } from '@faker-js/faker';
-import bcrypt from 'bcrypt';
+import { PrismaInstance } from "../database.js";
+import { faker } from "@faker-js/faker";
+import bcrypt from "bcrypt";
 const prisma = PrismaInstance;
 async function main() {
-    console.log('🌱 Starting database seeding...');
+    console.log("\uD83C\uDF31 Starting database seeding...");
     await prisma.orderItem.deleteMany();
     await prisma.order.deleteMany();
     await prisma.product.deleteMany();
     await prisma.category.deleteMany();
     await prisma.user.deleteMany();
-    console.log('🧹 Cleaned existing data');
-    console.log('📦 Creating categories...');
+    console.log("\uD83E\uDDF9 Cleaned existing data");
+    console.log("\uD83D\uDCE6 Creating categories...");
     const categoryNames = [
-        'Electronics',
-        'Clothing',
-        'Books',
-        'Home & Garden',
-        'Sports & Outdoors',
-        'Toys & Games',
-        'Food & Beverages',
-        'Beauty & Health',
-        'Automotive',
-        'Office Supplies'
+        "Electronics",
+        "Clothing",
+        "Books",
+        "Home & Garden",
+        "Sports & Outdoors",
+        "Toys & Games",
+        "Food & Beverages",
+        "Beauty & Health",
+        "Automotive",
+        "Office Supplies"
     ];
     const categories = await Promise.all(categoryNames.map((name) => prisma.category.create({
         data: { name }
     })));
     console.log(`✅ Created ${categories.length} categories`);
-    console.log('👥 Creating users...');
+    console.log("\uD83D\uDC65 Creating users...");
     const users = await Promise.all(Array.from({ length: 50 }, async () => {
-        const password = await bcrypt.hash('password123', 10);
+        const password = await bcrypt.hash("password123", 10);
         return prisma.user.create({
             data: {
                 username: faker.person.fullName(),
@@ -39,7 +39,7 @@ async function main() {
         });
     }));
     console.log(`✅ Created ${users.length} users`);
-    console.log('🛍️  Creating products...');
+    console.log("\uD83D\uDECD\uFE0F  Creating products...");
     const products = await Promise.all(Array.from({ length: 100 }, () => {
         const category = faker.helpers.arrayElement(categories);
         return prisma.product.create({
@@ -54,7 +54,7 @@ async function main() {
         });
     }));
     console.log(`✅ Created ${products.length} products`);
-    console.log('🛒 Creating orders...');
+    console.log("\uD83D\uDED2 Creating orders...");
     const orders = [];
     for (let i = 0; i < 150; i++) {
         const user = faker.helpers.arrayElement(users);
@@ -100,8 +100,8 @@ async function main() {
     console.log(`✅ Created ${orders.length} orders`);
     // Summary
     const totalOrderItems = orders.reduce((sum, order) => sum + order.items.length, 0);
-    console.log('\n🎉 Seeding completed successfully!');
-    console.log('📊 Summary:');
+    console.log("\n\uD83C\uDF89 Seeding completed successfully!");
+    console.log("\uD83D\uDCCA Summary:");
     console.log(`   - Categories: ${categories.length}`);
     console.log(`   - Users: ${users.length}`);
     console.log(`   - Products: ${products.length}`);
@@ -110,7 +110,7 @@ async function main() {
 }
 main()
     .catch((e) => {
-    console.error('❌ Error during seeding:', e);
+    console.error("\u274C Error during seeding:", e);
     process.exit(1);
 })
     .finally(async () => {

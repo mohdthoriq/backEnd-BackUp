@@ -4,7 +4,7 @@ import { createProfileValidation, updateProfileValidation } from "../validations
 import { authenticate } from "../middlewares/auth.middlleware";
 import { upload } from "../middlewares/upload.middleware";
 import { ProfileRepository } from "../repository/profile.repository";
-import { PrismaInstance } from "../prisma";
+import { PrismaInstance } from "../database";
 import { ProfileService } from "../services/profile.service";
 import { ProfileController } from "../controllers/profile.controller";
 

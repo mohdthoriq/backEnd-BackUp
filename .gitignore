@@ -1,5 +1,5 @@
 node_modules
-.env 
+.env.prooduction
+.env.development 
 .dist
-/src/generated/prisma
 public/uploads/*

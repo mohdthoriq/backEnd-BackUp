@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { validate } from "../utils/validator";
 import { createCategoryValidation, getCategoryByIdValidation } from "../validations/category.validation";
-import { PrismaInstance } from "../prisma";
+import { PrismaInstance } from "../database";
 import { CategoryRepository } from "../repository/category.repository";
 import { CategoryService } from "../services/category.service";
 import { CategoryController } from "../controllers/category.controller";

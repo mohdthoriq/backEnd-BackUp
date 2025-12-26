@@ -3,7 +3,7 @@ import { validate } from '../utils/validator';
 import { checkoutOrderValidation, createOrderValidation, getOrderByIdValidation } from '../validations/orders.validation';
 import { authenticate } from '../middlewares/auth.middlleware';
 import { OrderRepository } from '../repository/orders.repository';
-import { PrismaInstance } from '../prisma';
+import { PrismaInstance } from '../database';
 import { OrderService } from '../services/orders.service';
 import { OrderController } from '../controllers/orders.controller';
 

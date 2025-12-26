@@ -1,4 +1,4 @@
-import type { IUserRepository } from "../repository/user.repository";
+import type { IUserRepository } from "../repository/user.repository.js";
 export declare class UserService {
     private userRepo;
     constructor(userRepo: IUserRepository);

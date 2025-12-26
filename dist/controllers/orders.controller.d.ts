@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import type { IOrderService } from "../services/orders.service";
+import type { IOrderService } from "../services/orders.service.js";
 export interface IOrderController {
     checkout(req: Request, res: Response): Promise<void>;
     list(req: Request, res: Response): Promise<void>;

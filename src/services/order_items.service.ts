@@ -1,4 +1,4 @@
-import type { Prisma, PrismaClient, OrderItem } from "../src/generated/prisma/client";
+import type { Prisma, PrismaClient, OrderItem } from "../generated";
 import type { IOrderItemRepository } from "../repository/order_items.repository";
 import type { FindAllParams } from "./product.service";
 

@@ -2,7 +2,7 @@ import type {
   Prisma,
   PrismaClient,
   OrderItem
-} from "../src/generated/prisma/client";
+} from "../generated";
 
 export interface IOrderItemRepository {
   findAll(params: {
